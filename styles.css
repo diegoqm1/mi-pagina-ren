@@ -1,26 +1,29 @@
 body {
-font-family: Arial;
+font-family: Arial, sans-serif;
 text-align: center;
-background: #ffe6f0;
-color: #333;
+background: linear-gradient(#ffe6f0, #fff0f5);
+margin: 0;
+padding: 20px;
 }
 
 h1, h2 {
-color: #ff66a3;
+color: #ff4d94;
 }
 
 #contador {
-font-size: 24px;
-margin: 20px;
+font-size: 26px;
+margin: 20px auto;
 background: white;
-padding: 10px;
-border-radius: 15px;
+padding: 15px;
+border-radius: 20px;
+width: fit-content;
+box-shadow: 0 0 15px rgba(255,105,180,0.3);
 animation: latido 2s infinite;
 }
 
 @keyframes latido {
 0% { transform: scale(1); }
-50% { transform: scale(1.05); }
+50% { transform: scale(1.07); }
 100% { transform: scale(1); }
 }
 
@@ -28,36 +31,29 @@ animation: latido 2s infinite;
 display: grid;
 grid-template-columns: repeat(5, 1fr);
 gap: 15px;
-padding: 20px;
+margin-top: 20px;
 }
 
 .foto img {
 width: 100%;
 border-radius: 15px;
 cursor: pointer;
-transition: transform 0.3s;
+transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .foto img:hover {
 transform: scale(1.1);
+box-shadow: 0 0 10px pink;
 }
 
 #mensaje {
-margin-top: 20px;
+margin: 25px auto;
 font-size: 18px;
 background: white;
-padding: 15px;
+padding: 20px;
 border-radius: 15px;
-opacity: 0;
-transition: opacity 0.5s;
-}
-
-#mensaje {
-margin-top: 20px;
-font-size: 18px;
-background: white;
-padding: 15px;
-border-radius: 15px;
+width: 70%;
+box-shadow: 0 0 10px rgba(255,105,180,0.2);
 opacity: 0;
 transition: opacity 0.5s;
 }
