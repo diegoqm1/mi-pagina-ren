@@ -1,16 +1,23 @@
-// Fecha de inicio (cámbiala)
-const inicio = new Date("2025-01-01");
+// 💗 Fecha de inicio: 10 de octubre de 2025
+const inicio = new Date("2025-10-10T00:00:00");
 
 function actualizarContador() {
 const ahora = new Date();
 const diferencia = ahora - inicio;
 
+if (diferencia < 0) {
+document.getElementById("contador").innerHTML =
+"Nuestro tiempo comienza pronto 💕";
+return;
+}
+
 const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
 const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+const segundos = Math.floor((diferencia / 1000) % 60);
 
 document.getElementById("contador").innerHTML =
-`${dias} días 💕 ${horas} horas 💗 ${minutos} minutos`;
+`${dias} días 💕 ${horas}h ${minutos}m ${segundos}s`;
 }
 
 setInterval(actualizarContador, 1000);
@@ -18,25 +25,25 @@ setInterval(actualizarContador, 1000);
 // 💌 Mensajes románticos
 const mensajes = [
 
-"Desde este día entendí que contigo cualquier momento se vuelve mágico. Gracias por existir 💕",
+"Desde este día entendí que contigo cualquier momento se vuelve mágico 💕",
 
-"Tu sonrisa es mi lugar favorito. Cada recuerdo contigo lo guardo como un tesoro ✨",
+"Tu sonrisa es mi lugar favorito en el mundo ✨",
 
-"No importa dónde estemos… mientras sea contigo, siempre será perfecto ❤️",
+"No importa dónde estemos… contigo siempre es perfecto ❤️",
 
-"Este día me recordó lo afortunado que soy de tenerte en mi vida 🫶",
+"Este recuerdo me recuerda lo afortunado que soy 🫶",
 
-"Cada foto contigo es una historia que quiero repetir mil veces 💗",
+"Cada foto contigo es una historia hermosa 💗",
 
-"Contigo aprendí que el amor se siente tranquilo, bonito y real 🌸",
+"Contigo el amor se siente tranquilo y real 🌸",
 
-"Ese momento quedó grabado porque estaba justo donde quería estar: a tu lado 💞",
+"A tu lado siempre quiero estar 💞",
 
-"Gracias por llenar mis días de risas, cariño y recuerdos hermosos ✨",
+"Gracias por llenar mis días de felicidad ✨",
 
-"No es solo una foto… es un pedacito de felicidad contigo 💕",
+"No es solo una foto… es felicidad contigo 💕",
 
-"Y aquí estaba pensando: ojalá todos mis días sean contigo ❤️"
+"Ojalá todos mis días sean siempre contigo ❤️"
 
 ];
 
