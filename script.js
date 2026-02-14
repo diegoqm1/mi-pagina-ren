@@ -1,53 +1,53 @@
-body {
-font-family: Arial;
-text-align: center;
-background: #ffe6f0;
-color: #333;
+// Fecha de inicio (cámbiala)
+const inicio = new Date("2025-01-01");
+
+function actualizarContador() {
+const ahora = new Date();
+const diferencia = ahora - inicio;
+
+const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
+
+document.getElementById("contador").innerHTML =
+`${dias} días 💕 ${horas} horas 💗 ${minutos} minutos`;
 }
 
-h1, h2 {
-color: #ff66a3;
-}
+setInterval(actualizarContador, 1000);
 
-#contador {
-font-size: 24px;
-margin: 20px;
-background: white;
-padding: 10px;
-border-radius: 15px;
-animation: latido 2s infinite;
-}
+// 💌 Mensajes románticos
+const mensajes = [
 
-@keyframes latido {
-0% { transform: scale(1); }
-50% { transform: scale(1.05); }
-100% { transform: scale(1); }
-}
+"Desde este día entendí que contigo cualquier momento se vuelve mágico. Gracias por existir 💕",
 
-.galeria {
-display: grid;
-grid-template-columns: repeat(5, 1fr);
-gap: 15px;
-padding: 20px;
-}
+"Tu sonrisa es mi lugar favorito. Cada recuerdo contigo lo guardo como un tesoro ✨",
 
-.foto img {
-width: 100%;
-border-radius: 15px;
-cursor: pointer;
-transition: transform 0.3s;
-}
+"No importa dónde estemos… mientras sea contigo, siempre será perfecto ❤️",
 
-.foto img:hover {
-transform: scale(1.1);
-}
+"Este día me recordó lo afortunado que soy de tenerte en mi vida 🫶",
 
-#mensaje {
-margin-top: 20px;
-font-size: 18px;
-background: white;
-padding: 15px;
-border-radius: 15px;
-opacity: 0;
-transition: opacity 0.5s;
+"Cada foto contigo es una historia que quiero repetir mil veces 💗",
+
+"Contigo aprendí que el amor se siente tranquilo, bonito y real 🌸",
+
+"Ese momento quedó grabado porque estaba justo donde quería estar: a tu lado 💞",
+
+"Gracias por llenar mis días de risas, cariño y recuerdos hermosos ✨",
+
+"No es solo una foto… es un pedacito de felicidad contigo 💕",
+
+"Y aquí estaba pensando: ojalá todos mis días sean contigo ❤️"
+
+];
+
+function mostrarMensaje(i) {
+const caja = document.getElementById("mensaje");
+const texto = document.getElementById("textoMensaje");
+
+texto.innerHTML = mensajes[i];
+
+caja.style.opacity = 0;
+setTimeout(() => {
+caja.style.opacity = 1;
+}, 200);
 }
