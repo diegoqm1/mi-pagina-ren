@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nuestro tiempo juntos 💞</title>
+<title>Nuestros recuerdos 💞</title>
 
 <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
@@ -15,27 +17,11 @@
 
 <div class="contenedor">
 
-<h1>💗 Nuestro tiempo juntos 💗</h1>
+<h1>💗 Nuestro álbum 💗</h1>
 
-<div id="contador" class="contador"></div>
+<div id="contador"></div>
 
-<h2>Momentos que guardo en mi corazón ✨</h2>
-
-<div class="galeria">
-
-<script>
-for(let i=1;i<=10;i++){
-document.write(`
-<div class="foto" onclick="mostrarMensaje(${i-1})">
-<img src="fotos/foto${i}.jpg">
-</div>
-`);
-}
-</script>
-
-</div>
-
-<div id="mensaje" class="mensaje"></div>
+<div class="album" id="album"></div>
 
 </div>
 
