@@ -1,56 +1,48 @@
-// 📅 Fecha inicial — 10 octubre 2025
-const fechaInicio = new Date("2025-10-10T00:00:00");
+// 📅 Fecha inicial
+const inicio = new Date(2025, 9, 10);
 
 function actualizarContador(){
-const ahora = new Date();
-const diferencia = ahora - fechaInicio;
 
-const dias = Math.floor(diferencia/(1000*60*60*24));
-const horas = Math.floor((diferencia/(1000*60*60))%24);
-const minutos = Math.floor((diferencia/(1000*60))%60);
-const segundos = Math.floor((diferencia/1000)%60);
+const ahora = new Date();
+let diff = ahora - inicio;
+
+let dias = Math.floor(diff / (1000*60*60*24));
+let horas = Math.floor(diff/(1000*60*60)%24);
+let minutos = Math.floor(diff/(1000*60)%60);
+let segundos = Math.floor(diff/1000%60);
 
 document.getElementById("contador").innerHTML =
-`✨ Llevamos juntos:<br>
-<strong>${dias}</strong> días,
-<strong>${horas}</strong> horas,
-<strong>${minutos}</strong> minutos,
-<strong>${segundos}</strong> segundos 💞`;
+`${dias} días 💕 ${horas}h ${minutos}m ${segundos}s`;
+
 }
 
 setInterval(actualizarContador,1000);
 
-
-
-// 💌 Mensajes románticos largos
+// 💖 Mensajes largos románticos
 const mensajes = [
 
-`Cada recuerdo contigo es una pequeña obra de arte que guardo en el corazón. No importa el lugar ni el momento… cuando estoy contigo, todo parece más brillante, más cálido, más vivo. Gracias por convertir lo cotidiano en algo mágico simplemente con tu presencia.`,
+`Desde que compartimos este momento, cada día contigo se volvió una historia que quiero recordar. No importa lo que pase afuera, contigo todo se siente más bonito, más tranquilo… como si el mundo se alineara para regalarnos instantes que guardo con cariño infinito.`,
 
-`Mirarte es recordar que existen cosas hermosas que no se pueden explicar con palabras. Tu sonrisa tiene ese poder extraño de calmarme, alegrarme y hacerme sentir que estoy exactamente donde debo estar.`,
+`Mirar estas fotos me recuerda que el amor no siempre son palabras grandes… a veces es una risa compartida, una mirada cómplice o un abrazo que lo dice todo. Cada recuerdo contigo es una promesa silenciosa de que lo nuestro vale cada segundo.`,
 
-`A tu lado el tiempo no corre… vuela. Y aun así, cada segundo queda grabado en mi memoria como si el universo quisiera asegurarse de que nunca olvide lo que se siente ser tan feliz contigo.`,
+`Hay algo mágico en cada instante que vivimos. No son solo momentos… son recuerdos que laten fuerte, que me hacen sonreír cuando los pienso y que me recuerdan lo especial que es caminar contigo.`,
 
-`No eres solo parte de mis días… eres el detalle que los hace especiales. Cada risa compartida, cada mirada, cada silencio cómodo contigo es un recordatorio de lo afortunado que soy.`,
+`Contigo aprendí que el tiempo no se mide en horas, sino en emociones. Cada día que pasa suma recuerdos, risas y pequeñas historias que construyen algo que quiero seguir viviendo.`,
 
-`Contigo aprendí que el amor no siempre hace ruido… a veces se siente como paz, como hogar, como esa sensación de saber que todo está bien mientras estés cerca.`,
+`Estas imágenes son más que fotos… son fragmentos de felicidad que siempre quiero volver a mirar. Porque cuando pienso en nosotros, pienso en calma, alegría y en un cariño que crece sin prisa.`,
 
-`Cada foto nuestra es más que una imagen… es un pedacito de historia, de emociones y de momentos que jamás quiero olvidar. Son pruebas de lo bonito que es caminar juntos.`,
+`A veces basta recordar uno de estos momentos para sentir que todo vale la pena. Porque compartir la vida contigo convierte lo simple en algo extraordinario.`,
 
-`Si pudiera elegir un lugar favorito en el mundo, sería cualquier sitio donde estés tú. Porque no se trata del lugar… se trata de la compañía que hace que todo cobre sentido.`,
+`Cada instante contigo tiene su propio brillo. Son recuerdos que me acompañan, que me inspiran y que me hacen valorar lo bonito que es coincidir en este tiempo.`,
 
-`Tu presencia ilumina incluso mis días más grises. Eres esa chispa que transforma lo simple en extraordinario, y lo ordinario en inolvidable.`,
+`Lo que más me gusta de estos recuerdos es que todos tienen algo en común: tu presencia. Y eso convierte cualquier momento en algo especial.`,
 
-`A veces pienso en lo increíble que es coincidir contigo en este universo tan grande. Y entre millones de caminos… el nuestro se cruzó para crear algo hermoso.`,
+`Cuando miro atrás, veo una colección de instantes que me llenan el corazón. Porque lo que vivimos no es casualidad… es una historia que seguimos escribiendo.`,
 
-`Más que momentos, contigo construyo recuerdos que quiero conservar toda la vida. Porque lo que vivimos juntos no es casualidad… es algo que vale la pena atesorar siempre.`
+`Nuestro tiempo juntos es una suma de emociones, sonrisas y recuerdos que quiero conservar siempre. Porque contigo, cada día tiene un significado distinto y hermoso.`
 
 ];
 
-
-
 function mostrarMensaje(i){
-const caja = document.getElementById("mensaje");
-caja.style.display="block";
-caja.innerText = mensajes[i];
+document.getElementById("mensaje").innerText = mensajes[i];
 }
