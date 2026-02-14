@@ -1,67 +1,121 @@
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-color:white;
-text-align:center;
+/* --- CUSTOM PROPERTIES (El cerebro del diseño) --- */
+:root {
+    --primary-gradient: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    --glass-bg: rgba(255, 255, 255, 0.12);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-main: #ffffff;
+    --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --shadow-pro: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
 }
 
-.contenedor{
-padding:20px;
-max-width:1100px;
-margin:auto;
+/* --- RESET & BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-h1{
-font-size:2.5em;
-margin-bottom:10px;
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--primary-gradient);
+    background-attachment: fixed; /* Mantiene el fondo estático al hacer scroll */
+    min-height: 100vh;
+    color: var(--text-main);
+    line-height: 1.6;
+    display: grid;
+    place-items: center; /* Centrado perfecto */
 }
 
-.contador{
-background:rgba(255,255,255,0.15);
-padding:15px;
-border-radius:15px;
-margin-bottom:25px;
-font-size:1.2em;
-backdrop-filter:blur(10px);
+/* --- LAYOUT --- */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    padding: 40px 20px;
 }
 
-.galeria{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:15px;
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Tamaño fluido según pantalla */
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.1);
 }
 
-.foto{
-overflow:hidden;
-border-radius:15px;
-cursor:pointer;
-transition:transform .3s, box-shadow .3s;
+/* --- COMPONENTS --- */
+.contador {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Soporte Safari */
+    border: 1px solid var(--glass-border);
+    padding: 25px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    font-size: 1.4em;
+    font-weight: 600;
+    box-shadow: var(--shadow-pro);
 }
 
-.foto img{
-width:100%;
-height:100%;
-object-fit:cover;
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Columnas más pro */
+    gap: 20px;
 }
 
-.foto:hover{
-transform:scale(1.07);
-box-shadow:0 0 20px rgba(255,255,255,0.6);
+.foto {
+    position: relative;
+    aspect-ratio: 1 / 1; /* Cuadrados perfectos sin deformar */
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--glass-bg);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.mensaje{
-margin-top:25px;
-padding:20px;
-background:rgba(0,0,0,0.25);
-border-radius:15px;
-font-size:1.1em;
-line-height:1.6em;
-display:none;
-animation:fade .5s ease;
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-@keyframes fade{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1; transform:translateY(0);}
+/* --- EFECTOS HOVER --- */
+.foto:hover {
+    transform: translateY(-10px); /* Efecto de levitación */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.foto:hover img {
+    transform: scale(1.15) rotate(2deg); /* Zoom con ligero giro */
+}
+
+.mensaje {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    font-size: 1.2em;
+    border-left: 5px solid #ff9a9e; /* Detalle de acento */
+    animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- ACCESIBILIDAD --- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
